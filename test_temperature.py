@@ -12,7 +12,7 @@ REFERENCE_POINTS = [
 ]
 
 
-# Initialization
+""" Initialization """
 
 def test_default_unit():
     """Tests that the unit is Celsius if we do not give one."""
@@ -35,7 +35,7 @@ def test_value_and_unit_read_only():
         t.unit = "F"
 
 
-# Validation
+""" Validation """
 
 def test_invalid_unit_raises():
     """Tests that a wrong unit gives a ValueError."""
@@ -54,7 +54,7 @@ def test_below_absolute_zero_raises(value, unit):
         Temperature(value, unit)
 
 
-# Conversions
+""" Conversions """
 
 @pytest.mark.parametrize("c, f, k", REFERENCE_POINTS)
 def test_to_celsius(c, f, k):
@@ -103,7 +103,7 @@ def test_convert_to_returns_new_object():
     assert original.unit == "C"
 
 
-# Round trip
+""" Round trip """
 
 @pytest.mark.parametrize("c, f, k", REFERENCE_POINTS)
 def test_round_trip(c, f, k):
@@ -113,7 +113,7 @@ def test_round_trip(c, f, k):
     assert back == start
 
 
-# Comparisons
+""" Comparisons """
 
 @pytest.mark.parametrize("c, f, k", REFERENCE_POINTS)
 def test_equal_across_units(c, f, k):
@@ -160,7 +160,7 @@ def test_compare_with_other_type():
         t < 5
 
 
-# Formatting
+""" Formatting """
 
 @pytest.mark.parametrize("value, unit, expected", [
     (25, "C", "Temperature(25.0, 'C')"),
