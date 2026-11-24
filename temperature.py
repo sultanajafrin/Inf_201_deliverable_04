@@ -1,9 +1,10 @@
 class Temperature:
-    """A temperature in Celsius (C), Fahrenheit (F) or Kelvin (K)."""
+    """Temparatue in three different units Celsius (C), Fahrenheit (F) or Kelvin (K)."""
 
-    # lowest allowed value in each unit
+    # The lowest possible value in each unit.
     ABSOLUTE_ZERO = {"C": -273.15, "F": -459.67, "K": 0}
 
+    # Two temparatures closer than this are treated as equal.
     TOLERANCE = 1e-9
 
     def __init__(self, value: float, unit: str = "C") -> None:
@@ -71,7 +72,8 @@ class Temperature:
             return f"{self._value:.2f} K"
         return f"{self._value:.2f} °{self._unit}"
 
-    # comparisons: we compare the temperatures in Kelvin
+    # For the comparisons we change both temparatures to Kelvin first,
+    # so that different units can be compared.
 
     def __eq__(self, other: object) -> bool:
         """Returns True if the two temperatures are equal."""

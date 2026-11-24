@@ -125,7 +125,8 @@ def test_equal_across_units(c, f, k):
 def test_not_equal():
     """Tests that different temperatures are not equal."""
     assert Temperature(0, "C") != Temperature(33, "F")
-    assert Temperature(0, "C") != Temperature(0, "K")    # 0 C is not 0 K
+    assert Temperature(0, "C") != Temperature(0, "K")    
+# 0 C is not 0 K
 
 
 def test_ordering_across_units():
@@ -137,8 +138,8 @@ def test_ordering_across_units():
     assert hot > warm > cold
     assert cold <= warm
     assert hot >= warm
-    assert cold <= Temperature(32, "F")     # equal
-    assert cold >= Temperature(32, "F")     # equal
+    assert cold <= Temperature(32, "F")     
+    assert cold >= Temperature(32, "F")     
     assert not cold < Temperature(32, "F")
     assert not cold > Temperature(32, "F")
 
