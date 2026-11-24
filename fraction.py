@@ -28,8 +28,8 @@ class Fraction:
         """Read-only denominator."""
         return self._denominator
 
-    #these are the six required comparisons
-    #we use cross multiplication to get solutions, this works because the denominators are always positive
+    """these are the six required comparisons
+    we use cross multiplication to get solutions, this works because the denominators are always positive"""
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Fraction):
@@ -72,7 +72,7 @@ class Fraction:
         return (self._numerator * other._denominator
                 >= other._numerator * self._denominator)
 
-    # the four extra methods: repr, str, add and mul
+    """ the four extra methods: repr, str, add and mul"""
 
     #gives output that looks like the call that created the object
     def __repr__(self) -> str:
